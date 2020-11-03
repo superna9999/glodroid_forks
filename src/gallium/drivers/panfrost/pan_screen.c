@@ -693,7 +693,7 @@ panfrost_create_screen(int fd, struct renderonly *ro)
         struct panfrost_device *dev = pan_device(&screen->base);
         panfrost_open_device(screen, fd, dev);
 
-        dev->debug = debug_get_flags_option("PAN_MESA_DEBUG", debug_options, 0);
+        dev->debug = debug_get_flags_option("PAN_MESA_DEBUG", debug_options, 0) | PAN_DBG_BIFROST;
 
         if (ro) {
                 dev->ro = renderonly_dup(ro);
